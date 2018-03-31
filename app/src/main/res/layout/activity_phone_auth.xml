@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.norkholis.recordtimbangan.view.PhoneAuthActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Autentifikasi Nomor Telpon"
+        android:textSize="24sp"/>
+
+    <View
+        android:layout_width="@dimen/_260sdp"
+        android:layout_height="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/_3sdp"
+        android:layout_gravity="center"
+        android:background="@color/separated">
+    </View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_8sdp"
+        android:text="Masukkan nomor telepon anda, kami akan mengirimkn kode verifikasi untuk anda"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="@dimen/_10sdp"
+        android:text="Nomor telpon anda"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="+6289694467050"
+        android:id="@+id/noTelp"/>
+
+    <Button
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Kirim Verifikasi kode"
+        android:textColor="#ffffff"
+        android:background="@drawable/primary_rounded"
+        android:id="@+id/btnSendVerifKode"/>
+
+    <Button
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Resend Verifikasi kode"
+        android:textColor="#ffffff"
+        android:id="@+id/btnResendVerifKode"
+        android:background="@drawable/primary_rounded"/>
+
+    <View
+        android:layout_width="@dimen/_260sdp"
+        android:layout_height="@dimen/_2sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_gravity="center"
+        android:background="@color/separated">
+    </View>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_15sdp"
+        android:text="Masukkan kode verifikasi yang telah didapatkan"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:hint="915346"
+        android:id="@+id/verifKode"/>
+
+    <Button
+        android:layout_width="@dimen/_160sdp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:text="Verifikasi kode"
+        android:textColor="#ffffff"
+        android:id="@+id/btnVerifKode"
+        android:background="@drawable/primary_rounded"/>
+
+</LinearLayout>

@@ -4,25 +4,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.norkholis.recordtimbangan.R;
 
-public class LoginPanelActivity extends AppCompatActivity {
-    Button btn_login, btn_toRegister;
+public class RegisterActivity extends AppCompatActivity {
+    TextView daftarNC;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login_panel);
+        setContentView(R.layout.activity_register);
 
-        btn_login = (Button)findViewById(R.id.btn_login);
-        btn_toRegister = (Button)findViewById(R.id.btn_toRegister);
+        TextView daftarNC = (TextView)findViewById(R.id.daftarNC);
 
-        btn_toRegister.setOnClickListener(new View.OnClickListener() {
+        daftarNC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(LoginPanelActivity.this, RegisterActivity.class);
+                Intent i = new Intent(RegisterActivity.this, RegisterNCActivity.class);
                 startActivity(i);
                 finish();
             }

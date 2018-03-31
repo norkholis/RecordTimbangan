@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "353579143090",
+    "firebase_url": "https://bmitracker.firebaseio.com",
+    "project_id": "bmitracker",
+    "storage_bucket": "bmitracker.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:353579143090:android:545903646bf64c69",
+        "android_client_info": {
+          "package_name": "com.example.norkholis.recordtimbangan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "353579143090-gbkb60nln7u18sei0bkataon6rubbov7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.norkholis.recordtimbangan",
+            "certificate_hash": "913fb703499c2fdb2fc365b753cab92bbff18282"
+          }
+        },
+        {
+          "client_id": "353579143090-jb8kcgneev1gkqbudsbiu9r92vgri9bg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAlCJ-K-ufbt2zyk6zKnjTALsFKYRf4MPM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "353579143090-jb8kcgneev1gkqbudsbiu9r92vgri9bg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

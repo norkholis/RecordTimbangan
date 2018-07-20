@@ -27,5 +27,14 @@ public class LoginPanelActivity extends AppCompatActivity {
                 finish();
             }
         });
+
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(LoginPanelActivity.this, DashBoardActivity.class);
+                startActivity(i);
+                finish();
+            }
+        });
     }
 }

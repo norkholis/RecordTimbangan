@@ -11,4 +11,11 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_nav_drawer">NavDrawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="artikel_bmr">BMR hanyalah jumlah kalori minimal yang dibutuhkan tubuh Anda untuk bisa menggerakkan organ-organ vital. Namun setiap harinya, Anda perlu mengonsumsi makanan dan minuman dengan jumlah kalori lebih dari itu, karena Anda juga butuh energi untuk bergerak, berjalan, berpikir, dan sejumlah aktivitas fisik lain yang dilakukan sehari-harinya.
+    Mengetahui BMR tentu bermanfaat untuk mengetahui berapa kalori yang harus Anda asup dalam sehari. Anda bisa menyesuaikan dengan berat badan Anda. Jika Anda mempunyai berat badan berlebih, dengan mengetahui BMR tentu dapat memudahkan Anda untuk membatasi asupan kalori Anda per hari, sehingga terjadi penurunan berat badan. Namun, jika berat badan Anda kurang, Anda bisa menambahkan jumlah kalori Anda, sehingga lebih banyak energi yang disimpan dalam tubuh dan kenaikan berat badan pun akan terjadi.</string>
 </resources>

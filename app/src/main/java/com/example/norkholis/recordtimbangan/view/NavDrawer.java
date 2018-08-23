@@ -1,10 +1,11 @@
 package com.example.norkholis.recordtimbangan.view;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -18,15 +19,27 @@ import android.view.MenuItem;
 import com.example.norkholis.recordtimbangan.R;
 import com.example.norkholis.recordtimbangan.fragment.AddNewRecord;
 
-public class DashBoardActivity extends AppCompatActivity
+public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dash_board);
+        setContentView(R.layout.activity_nav_drawer);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                AddNewRecord addNewRecord = new AddNewRecord();
+                fragmentTransaction.add(R.id.container, addNewRecord, AddNewRecord.class.getSimpleName());
+                fragmentTransaction.commit();
+            }
+        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -51,7 +64,7 @@ public class DashBoardActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.dash_board, menu);
+        getMenuInflater().inflate(R.menu.nav_drawer, menu);
         return true;
     }
 
@@ -73,15 +86,15 @@ public class DashBoardActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
+        android.support.v4.app.Fragment fragment = null;
         // Handle navigation view item clicks here.
-        Fragment fragment = null;
-
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            if (fragment==null){
+            if(fragment == null){
                 fragment = new AddNewRecord();
             }
+            // Handle the camera action
         } else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -93,9 +106,9 @@ public class DashBoardActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }
-        if (fragment!=null){
-            FragmentManager fm = getSupportFragmentManager();
-            fm.beginTransaction().replace(R.id.content_frame, fragment, fragment.getClass().getSimpleName()).commit();
+        if(fragment != null){
+            android.support.v4.app.FragmentManager fm = getSupportFragmentManager();
+            fm.beginTransaction().replace(R.id.container, fragment, fragment.getClass().getSimpleName()).commit();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -1,14 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context=".fragment.ViewRecord">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
-
-</FrameLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Detail Timbangan"
+        android:textAlignment="center"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginBottom="10dp"/>
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        app:cardCornerRadius="10dp">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="10dp">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tanggal Timbang"
+                    android:textSize="@dimen/_15sdp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20 Agustus 2018"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_Tanggal"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Berat Badan"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_BeratBadan"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lemak Tubuh"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_LemakTubuh"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kadar Air"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_KadarAir"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Massa Otot"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_MassaOtot"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rating Fisik"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_RatingFisik"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Usia Sel"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetaik_UsiaSel"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kepadatan Tulang"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetail_KepadatanTulang"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lemak Perut"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetail_LemakPerut"
+                    android:layout_marginBottom="8dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="BMR"
+                    android:textSize="@dimen/_15sdp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20Kg"
+                    android:textSize="@dimen/_12sdp"
+                    android:id="@+id/vDetail_Bmr"
+                    android:layout_marginBottom="8dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="DELETE"
+                    android:layout_gravity="right"
+                    android:layout_marginRight="15dp"
+                    android:id="@+id/deleteTimbangan"
+                    android:background="@drawable/primary_rounded"
+                    android:layout_marginBottom="10dp"/>
+            </LinearLayout>
+        </ScrollView>
+    </android.support.v7.widget.CardView>
+</LinearLayout>

@@ -9,14 +9,10 @@
     tools:openDrawer="start">
 
     <include
-        layout="@layout/app_bar_dash_board"
+        layout="@layout/app_bar_nav_drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 
-    <FrameLayout
-        android:id="@+id/content_frame"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"
@@ -24,6 +20,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
-        app:headerLayout="@layout/nav_header_dash_board"
-        app:menu="@menu/activity_dash_board_drawer" />
+        app:headerLayout="@layout/nav_header_nav_drawer"
+        app:menu="@menu/activity_nav_drawer_drawer" />
+
 </android.support.v4.widget.DrawerLayout>

@@ -2,26 +2,20 @@ package com.example.norkholis.recordtimbangan.fragment;
 
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.norkholis.recordtimbangan.R;
-import com.example.norkholis.recordtimbangan.adapter.TabFragmentPagerAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class TimbanganFragment extends Fragment {
+public class ListTimbangan extends Fragment {
 
-    private static final String TAG = TimbanganFragment.class.getSimpleName();
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
 
-    public TimbanganFragment() {
+    public ListTimbangan() {
         // Required empty public constructor
     }
 
@@ -30,10 +24,7 @@ public class TimbanganFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_timbangan, container, false);
-
-
-        return view;
+        return inflater.inflate(R.layout.fragment_list_timbangan, container, false);
     }
 
 }

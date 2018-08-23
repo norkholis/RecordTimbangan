@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    tools:context=".fragment.ListTimbangan">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="15dp"
+            android:text="Chart Berat Badan"
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginBottom="10dp"/>
+        <com.anychart.anychart.AnyChartView
+            android:layout_width="match_parent"
+            android:layout_height="210dp"
+            android:id="@+id/chart_Timbangan"
+            android:layout_marginBottom="15dp">
+        </com.anychart.anychart.AnyChartView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="List Record Timbangan"
+            android:textSize="@dimen/_20sdp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/rvListTimbangan">
+        </android.support.v7.widget.RecyclerView>
+</LinearLayout>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.JadwalTimbang"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Jadwal Timbang Berikutnya"
+        android:textAlignment="center"
+        android:textSize="@dimen/_20sdp"
+        android:layout_marginBottom="@dimen/_15sdp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="20 Agustus 2018"
+        android:gravity="center"
+        android:textSize="@dimen/_18sdp"
+        android:id="@+id/jadwal_timbang"/>
+
+
+</LinearLayout>

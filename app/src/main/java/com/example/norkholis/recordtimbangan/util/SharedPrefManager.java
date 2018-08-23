@@ -12,7 +12,8 @@ public class SharedPrefManager {
     public static final String SP_NAMA = "spName";
     public static final String SP_USERNAME = "spUsername";
     public static final String SP_ID = "spId";
-    public static final String SP_TOKEN = "spToken";
+    public static final String SP_TINGGI_BADAN = "spTinggiBadan";
+    public static final String SP_BERATBADAN = "spBeratBadan";
 
     public static final String SP_STATUS_LOGIN = "spStatusLogin";
 
@@ -34,6 +35,11 @@ public class SharedPrefManager {
         spEditor.commit();
     }
 
+    public void saveSPFloat(String keySP, float value){
+        spEditor.putFloat(keySP, value);
+        spEditor.commit();
+    }
+
     public void saveSPBoolean(String keySP, boolean value){
         spEditor.putBoolean(keySP, value);
         spEditor.commit();
@@ -47,8 +53,12 @@ public class SharedPrefManager {
         return sp.getString(SP_USERNAME,"");
     }
 
-    public String getSpToken(){
-        return  sp.getString(SP_TOKEN, "");
+    public float getSpTinggiBadan(){
+        return sp.getFloat(SP_TINGGI_BADAN, 0);
+    }
+
+    public float getSpBeratBadan(){
+        return sp.getFloat(SP_BERATBADAN, 0);
     }
 
     public int getSpId() {

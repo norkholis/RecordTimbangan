@@ -6,18 +6,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragment.TimbanganFragment">
-
-    <android.support.design.widget.TabLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/tabs"
-        android:padding="@dimen/_6sdp"
-        android:background="@color/colorPrimary">
-    </android.support.design.widget.TabLayout>
-    <android.support.v4.view.ViewPager
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/viewPager">
-    </android.support.v4.view.ViewPager>
+        android:layout_height="wrap_content">
+        <include layout="@layout/brweight_info"/>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Tentang BMR"
+            android:textSize="@dimen/_20sdp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/artikel_bmr"
+            android:textAlignment="viewStart"
+            android:gravity="start" />
+    </ScrollView>
 </LinearLayout>

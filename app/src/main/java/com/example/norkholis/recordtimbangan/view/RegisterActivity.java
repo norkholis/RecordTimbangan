@@ -55,9 +55,8 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onResponse(Call<RegisterModel> call, Response<RegisterModel> response) {
                         if (response.isSuccessful()){
                             boolean registerStatus = response.body().getStatus();
-                            if (registerStatus != false){
+                            if (registerStatus){
                                 Toast.makeText(RegisterActivity.this, "Register Succed", Toast.LENGTH_SHORT).show();
-
                             }
                         }
                     }

@@ -13,13 +13,11 @@
         android:textAlignment="center"
         android:textSize="@dimen/_20sdp"
         android:layout_marginBottom="@dimen/_15sdp"/>
-    <TextView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="20 Agustus 2018"
-        android:gravity="center"
-        android:textSize="@dimen/_18sdp"
-        android:id="@+id/jadwal_timbang"/>
+        android:id="@+id/rvJadwal">
+    </android.support.v7.widget.RecyclerView>
 
 
 </LinearLayout>

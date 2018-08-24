@@ -3,9 +3,7 @@ package com.example.norkholis.recordtimbangan.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.List;
-
-public class RegisterModel {
+public class NewTimbanganModel {
     @SerializedName("message")
     @Expose
     private String message;
@@ -14,7 +12,7 @@ public class RegisterModel {
     private Boolean status;
     @SerializedName("data")
     @Expose
-    private UserModel data;
+    private DataTimbanganModel data;
 
     public String getMessage() {
         return message;
@@ -32,11 +30,11 @@ public class RegisterModel {
         this.status = status;
     }
 
-    public UserModel getData() {
+    public DataTimbanganModel getData() {
         return data;
     }
 
-    public void setData(UserModel data) {
+    public void setData(DataTimbanganModel data) {
         this.data = data;
     }
 }

@@ -18,6 +18,9 @@ import android.view.MenuItem;
 
 import com.example.norkholis.recordtimbangan.R;
 import com.example.norkholis.recordtimbangan.fragment.AddNewRecord;
+import com.example.norkholis.recordtimbangan.fragment.JadwalTimbang;
+import com.example.norkholis.recordtimbangan.fragment.Profile;
+import com.example.norkholis.recordtimbangan.fragment.TimbanganFragment;
 
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,6 +32,12 @@ public class NavDrawer extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        TimbanganFragment timbanganFragment = new TimbanganFragment();
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.container, timbanganFragment);
+        transaction.commit();
+
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -36,7 +45,7 @@ public class NavDrawer extends AppCompatActivity
                 android.support.v4.app.FragmentManager fragmentManager = getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 AddNewRecord addNewRecord = new AddNewRecord();
-                fragmentTransaction.add(R.id.container, addNewRecord, AddNewRecord.class.getSimpleName());
+                fragmentTransaction.replace(R.id.container, addNewRecord, AddNewRecord.class.getSimpleName());
                 fragmentTransaction.commit();
             }
         });
@@ -92,12 +101,22 @@ public class NavDrawer extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
             if(fragment == null){
-                fragment = new AddNewRecord();
+                fragment = new TimbanganFragment();
             }
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
+            Profile profilFragment = new Profile();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, profilFragment);
+            transaction.commit();
+
 
         } else if (id == R.id.nav_slideshow) {
+            JadwalTimbang jadwalTimbang = new JadwalTimbang();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, jadwalTimbang);
+            transaction.commit();
+
 
         } else if (id == R.id.nav_manage) {
 

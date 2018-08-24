@@ -14,6 +14,8 @@ public class SharedPrefManager {
     public static final String SP_ID = "spId";
     public static final String SP_TINGGI_BADAN = "spTinggiBadan";
     public static final String SP_BERATBADAN = "spBeratBadan";
+    public static final String SP_BMR = "spBMR";
+    public static final String SP_LAST_DATE = "spLastDate";
 
     public static final String SP_STATUS_LOGIN = "spStatusLogin";
 
@@ -53,12 +55,20 @@ public class SharedPrefManager {
         return sp.getString(SP_USERNAME,"");
     }
 
+    public String getSpLastDate(){
+        return sp.getString(SP_LAST_DATE, "");
+    }
+
     public float getSpTinggiBadan(){
         return sp.getFloat(SP_TINGGI_BADAN, 0);
     }
 
     public float getSpBeratBadan(){
         return sp.getFloat(SP_BERATBADAN, 0);
+    }
+
+    public float getSpBmr(){
+        return  sp.getFloat(SP_BMR, 0);
     }
 
     public int getSpId() {

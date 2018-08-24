@@ -6,9 +6,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".fragment.TimbanganFragment">
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
         <include layout="@layout/brweight_info"/>
 
         <TextView
@@ -24,5 +22,4 @@
             android:text="@string/artikel_bmr"
             android:textAlignment="viewStart"
             android:gravity="start" />
-    </ScrollView>
 </LinearLayout>

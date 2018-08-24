@@ -37,6 +37,13 @@ public class LoginPanelActivity extends AppCompatActivity {
         lgn_username = (EditText)findViewById(R.id.lgn_username);
         lgn_password = (EditText)findViewById(R.id.lgn_password);
 
+        sharedPrefManager = new SharedPrefManager(this);
+        if (sharedPrefManager.getSpStatusLogin()){
+            Intent i = new Intent(LoginPanelActivity.this, NavDrawer.class);
+            startActivity(i);
+            finish();
+        }
+
         btn_toRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -58,10 +65,10 @@ public class LoginPanelActivity extends AppCompatActivity {
                             if (loginStatus == true){
                                 UserModel userData = response.body().getUser();
                                 int idUser = userData.getIdUser();
-//                                String namaUser = response.body().getUser().getNamaUser().toString();
-//                                sharedPrefManager.saveSPInt(SharedPrefManager.SP_ID, idUser);
-//                                sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, namaUser);
-//                                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_STATUS_LOGIN, true);
+                                String namaUser = response.body().getUser().getNamaUser();
+                                sharedPrefManager.saveSPInt(SharedPrefManager.SP_ID, idUser);
+                                sharedPrefManager.saveSPString(SharedPrefManager.SP_NAMA, namaUser);
+                                sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_STATUS_LOGIN, true);
 
                                 Intent i = new Intent(LoginPanelActivity.this, NavDrawer.class);
                                 startActivity(i);

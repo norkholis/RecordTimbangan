@@ -20,6 +20,7 @@ import com.example.norkholis.recordtimbangan.util.SharedPrefManager;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -34,10 +35,9 @@ public class JadwalTimbang extends Fragment {
     private APIClient apiClient = new APIClient();
     private SharedPrefManager sharedPrefManager;
     private Call<List<JadwalModel>> apiCall;
+    private RecyclerView rvJadwal;
 
 
-    @BindView(R.id.rvJadwal)
-    RecyclerView rvJadwal;
 
     public JadwalTimbang() {
         // Required empty public constructor
@@ -48,22 +48,10 @@ public class JadwalTimbang extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_jadwal_timbang, container, false);
+        final View view = inflater.inflate(R.layout.fragment_jadwal_timbang, container, false);
+
         sharedPrefManager = new SharedPrefManager(getContext());
 
-        loadData();
-
-        return view;
-    }
-
-    private void setupList(){
-
-//        rvJadwal.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
-
-
-    }
-
-    private void loadData(){
         int id_user = sharedPrefManager.getSpId();
         apiCall = apiClient.getService().requestJadwal(id_user);
         apiCall.enqueue(new Callback<List<JadwalModel>>() {
@@ -72,6 +60,8 @@ public class JadwalTimbang extends Fragment {
                 if (response.isSuccessful()){
                     List<JadwalModel> list = response.body();
                     if (list.size()!=0) {
+                        rvJadwal = (RecyclerView)view.findViewById(R.id.rvJadwal);
+                        rvJadwal.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
                         rvJadwal.setLayoutManager(new LinearLayoutManager(getContext()));
                         jadwalAdapter = new JadwalAdapter();
                         jadwalAdapter.updateData(list);
@@ -84,10 +74,13 @@ public class JadwalTimbang extends Fragment {
 
             @Override
             public void onFailure(Call<List<JadwalModel>> call, Throwable t) {
-                    Toast.makeText(getContext(), "Data Tidak bisa diambil"+t, Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Data Tidak bisa diambil"+t, Toast.LENGTH_LONG).show();
             }
         });
+
+        return view;
     }
+
 
 }
 

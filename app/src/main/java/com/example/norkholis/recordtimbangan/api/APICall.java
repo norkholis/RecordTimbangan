@@ -1,5 +1,6 @@
 package com.example.norkholis.recordtimbangan.api;
 
+import com.example.norkholis.recordtimbangan.model.DataTimbanganModel;
 import com.example.norkholis.recordtimbangan.model.JadwalModel;
 import com.example.norkholis.recordtimbangan.model.LoginModel;
 import com.example.norkholis.recordtimbangan.model.NewTimbanganModel;
@@ -51,6 +52,10 @@ public interface APICall {
                                         @Field("kepadatan_tulang")float kepadatan_tulang,
                                         @Field("lemak_perut")float lemak_perut,
                                         @Field("bmr")float bmr);
+
+    //Get data timbangan by user
+    @GET("timbangan")
+    Call<List<DataTimbanganModel>>getTimbanganUser(@Query("id_user")int id_user);
 
     //Get Jadwal
     @GET("jadwal")

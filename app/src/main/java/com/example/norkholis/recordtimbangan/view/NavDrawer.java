@@ -2,6 +2,7 @@ package com.example.norkholis.recordtimbangan.view;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,11 +20,15 @@ import android.view.MenuItem;
 import com.example.norkholis.recordtimbangan.R;
 import com.example.norkholis.recordtimbangan.fragment.AddNewRecord;
 import com.example.norkholis.recordtimbangan.fragment.JadwalTimbang;
+import com.example.norkholis.recordtimbangan.fragment.ListTimbangan;
 import com.example.norkholis.recordtimbangan.fragment.Profile;
 import com.example.norkholis.recordtimbangan.fragment.TimbanganFragment;
+import com.example.norkholis.recordtimbangan.util.SharedPrefManager;
 
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +41,8 @@ public class NavDrawer extends AppCompatActivity
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, timbanganFragment);
         transaction.commit();
+
+        sharedPrefManager = new SharedPrefManager(this);
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -99,30 +106,36 @@ public class NavDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_timbangan) {
             if(fragment == null){
                 fragment = new TimbanganFragment();
             }
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_profile) {
             Profile profilFragment = new Profile();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.container, profilFragment);
             transaction.commit();
 
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_jadwal) {
             JadwalTimbang jadwalTimbang = new JadwalTimbang();
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.container, jadwalTimbang);
             transaction.commit();
 
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_grafik) {
+            ListTimbangan listTimbangan = new ListTimbangan();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.container, listTimbangan);
+            transaction.commit();
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_logout) {
+            sharedPrefManager.saveSPBoolean(SharedPrefManager.SP_STATUS_LOGIN, false);
+            Intent i = new Intent(NavDrawer.this, LoginPanelActivity.class);
+            startActivity(i);
+            finish();
 
         }
         if(fragment != null){

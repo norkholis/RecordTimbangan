@@ -3,6 +3,8 @@ package com.example.norkholis.recordtimbangan.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,7 @@ import com.example.norkholis.recordtimbangan.api.APIClient;
 import com.example.norkholis.recordtimbangan.model.DataTimbanganModel;
 import com.example.norkholis.recordtimbangan.model.DatumDetailTimbangan;
 import com.example.norkholis.recordtimbangan.model.ResponseDetailTimbangan;
+import com.example.norkholis.recordtimbangan.model.ResponseHapusTimbangan;
 import com.example.norkholis.recordtimbangan.util.SharedPrefManager;
 import com.google.gson.Gson;
 
@@ -84,7 +87,7 @@ public class ViewRecord extends Fragment {
         ButterKnife.bind(this, view);
 
         sharedPrefManager = new SharedPrefManager(getContext());
-        int id_timbangan = getArguments().getInt(TIMBANGAN_ITEM);
+        final int id_timbangan = getArguments().getInt(TIMBANGAN_ITEM);
         int id_user = sharedPrefManager.getSpId();
 
         apiCall = apiClient.getService().getDetailTimbangan(id_user, id_timbangan);
@@ -113,6 +116,41 @@ public class ViewRecord extends Fragment {
                 Toast.makeText(getContext(), "Gagal terkoneksi dengan internet", Toast.LENGTH_SHORT).show();
             }
         });
+
+        deleteTimbangan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Call<ResponseHapusTimbangan> apiDeleteTimbangan = apiClient.getService().hapusTimbangan(id_timbangan);
+                apiDeleteTimbangan.enqueue(new Callback<ResponseHapusTimbangan>() {
+                    @Override
+                    public void onResponse(Call<ResponseHapusTimbangan> call, Response<ResponseHapusTimbangan> response) {
+                        if (response.isSuccessful()){
+                            ResponseHapusTimbangan respHapus = response.body();
+                            Boolean status = respHapus.getStatus();
+                            if (status){
+                                Toast.makeText(getContext(), "Data tidak berhasil di hapus", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(getContext(), "Data berhasil di hapus", Toast.LENGTH_SHORT).show();
+                                FragmentManager fragmentManager = getFragmentManager();
+                                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                                ListTimbangan listTimbangan = new ListTimbangan();
+                                fragmentTransaction.replace(R.id.container, listTimbangan, TimbanganFragment.class.getSimpleName());
+                                fragmentTransaction.addToBackStack(null);
+                                fragmentTransaction.commit();
+                            }
+                        }else{
+                            Toast.makeText(getContext(), "Data tidak berhasil di hapus", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<ResponseHapusTimbangan> call, Throwable t) {
+                        Toast.makeText(getContext(), "Data tidak berhasil di hapus, cek koneksi internet anda", Toast.LENGTH_SHORT).show();
+                    }
+                });
+            }
+        });
+
         return view;
     }
 

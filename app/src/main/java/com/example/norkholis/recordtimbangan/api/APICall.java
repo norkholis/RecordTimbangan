@@ -6,6 +6,8 @@ import com.example.norkholis.recordtimbangan.model.LoginModel;
 import com.example.norkholis.recordtimbangan.model.NewTimbanganModel;
 import com.example.norkholis.recordtimbangan.model.RegisterModel;
 import com.example.norkholis.recordtimbangan.model.ResponseDetailTimbangan;
+import com.example.norkholis.recordtimbangan.model.ResponseHapusTimbangan;
+import com.example.norkholis.recordtimbangan.model.ResponseUpdateProfile;
 import com.example.norkholis.recordtimbangan.model.UserModel;
 
 import java.util.List;
@@ -29,6 +31,18 @@ public interface APICall {
                                         @Field("telp_user")String telp_user,
                                         @Field("status_user")String status_user,
                                         @Field("id_anc")String id_anc);
+
+    @FormUrlEncoded
+    @POST("admin_nc/new")
+    Call<RegisterModel>registerRequestNc(@Field("id_user")String id_user,
+                                         @Field("nama_anc")String nama_anc,
+                                         @Field("username_anc")String username_anc,
+                                         @Field("password_anc")String password_anc,
+                                         @Field("alamat_anc")String alamat_anc,
+                                         @Field("telp_anc")String telp_anc,
+                                         @Field("status_anc")String status_anc,
+                                         @Field("id_sa")String id_sa);
+
     //Login User
     @FormUrlEncoded
     @POST("user/login")
@@ -38,6 +52,16 @@ public interface APICall {
     //Get Data User
     @GET("user")
     Call<List<UserModel>>requestDataUser(@Query("id_user")int id_user);
+
+    //Edit Data User
+    @FormUrlEncoded
+    @POST("user/update")
+    Call<ResponseUpdateProfile>requestEditUser(@Field("id_user")int id_user,
+                                               @Field("nama_user")String nama_user,
+                                               @Field("username_user")String username_user,
+                                               @Field("password_user")String password_user,
+                                               @Field("alamat_user")String alamat_user,
+                                               @Field("telp_user")String telp_user);
 
     //Add New Timbangan
     @FormUrlEncoded
@@ -63,6 +87,11 @@ public interface APICall {
     @POST("timbangan/lihat")
     Call<ResponseDetailTimbangan>getDetailTimbangan(@Field("id_user")int id_user,
                                                     @Field("id_timbangan")int id_timbangan);
+
+    //Delete Timbangan
+    @FormUrlEncoded
+    @POST("timbangan/hapus")
+    Call<ResponseHapusTimbangan>hapusTimbangan(@Field("id_timbangan")int id_timbangan);
 
     //Get Jadwal
     @GET("jadwal")

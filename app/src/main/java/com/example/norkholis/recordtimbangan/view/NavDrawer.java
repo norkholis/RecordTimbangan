@@ -33,8 +33,6 @@ public class NavDrawer extends AppCompatActivity
 
     private SharedPrefManager sharedPrefManager;
 
-    @BindView(R.id.namaUser)
-    TextView namaUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,14 +41,14 @@ public class NavDrawer extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        sharedPrefManager = new SharedPrefManager(this);
+
+
+
         TimbanganFragment timbanganFragment = new TimbanganFragment();
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.container, timbanganFragment);
         transaction.commit();
-
-        sharedPrefManager = new SharedPrefManager(this);
-
-        namaUser.setText(sharedPrefManager.getSpNama());
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -73,6 +71,9 @@ public class NavDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+        TextView namaUser = (TextView)header.findViewById(R.id.namaUser);
+        namaUser.setText(sharedPrefManager.getSpNama());
     }
 
     @Override

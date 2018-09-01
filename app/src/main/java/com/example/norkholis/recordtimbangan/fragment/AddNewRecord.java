@@ -38,6 +38,12 @@ public class AddNewRecord extends Fragment {
 
 
     @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        getActivity().getActionBar().setTitle("Add New Record");
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -57,6 +63,7 @@ public class AddNewRecord extends Fragment {
         final EditText inTim_LemakPerut = (EditText)view.findViewById(R.id.inTim_LemakPerut);
         final EditText inTim_Bmr = (EditText)view.findViewById(R.id.inTim_Bmr);
         FloatingActionButton fab = (FloatingActionButton)view.findViewById(R.id.fab);
+
 
         final int id_user = sharedPrefManager.getSpId();
 

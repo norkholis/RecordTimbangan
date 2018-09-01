@@ -5,6 +5,7 @@ import com.example.norkholis.recordtimbangan.model.JadwalModel;
 import com.example.norkholis.recordtimbangan.model.LoginModel;
 import com.example.norkholis.recordtimbangan.model.NewTimbanganModel;
 import com.example.norkholis.recordtimbangan.model.RegisterModel;
+import com.example.norkholis.recordtimbangan.model.ResponseDetailTimbangan;
 import com.example.norkholis.recordtimbangan.model.UserModel;
 
 import java.util.List;
@@ -56,6 +57,12 @@ public interface APICall {
     //Get data timbangan by user
     @GET("timbangan")
     Call<List<DataTimbanganModel>>getTimbanganUser(@Query("id_user")int id_user);
+
+    //Get detail timbangan
+    @FormUrlEncoded
+    @POST("timbangan/lihat")
+    Call<ResponseDetailTimbangan>getDetailTimbangan(@Field("id_user")int id_user,
+                                                    @Field("id_timbangan")int id_timbangan);
 
     //Get Jadwal
     @GET("jadwal")

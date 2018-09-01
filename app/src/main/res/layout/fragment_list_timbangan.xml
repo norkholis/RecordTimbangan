@@ -14,12 +14,12 @@
             android:text="Chart Berat Badan"
             android:textSize="@dimen/_20sdp"
             android:layout_marginBottom="10dp"/>
-        <com.anychart.anychart.AnyChartView
+        <com.github.mikephil.charting.charts.LineChart
             android:layout_width="match_parent"
             android:layout_height="210dp"
             android:id="@+id/chart_Timbangan"
             android:layout_marginBottom="15dp">
-        </com.anychart.anychart.AnyChartView>
+        </com.github.mikephil.charting.charts.LineChart>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

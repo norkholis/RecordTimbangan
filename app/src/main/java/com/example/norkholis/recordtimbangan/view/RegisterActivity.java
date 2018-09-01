@@ -39,6 +39,8 @@ public class RegisterActivity extends AppCompatActivity {
         inStatusUser = (EditText)findViewById(R.id.inStatusUser);
         inIdNc = (EditText)findViewById(R.id.inIdNc);
 
+        getActionBar().setTitle("Register");
+
         btnRegisterUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

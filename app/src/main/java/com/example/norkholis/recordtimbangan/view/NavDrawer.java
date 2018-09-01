@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.norkholis.recordtimbangan.R;
 import com.example.norkholis.recordtimbangan.fragment.AddNewRecord;
@@ -25,10 +26,15 @@ import com.example.norkholis.recordtimbangan.fragment.Profile;
 import com.example.norkholis.recordtimbangan.fragment.TimbanganFragment;
 import com.example.norkholis.recordtimbangan.util.SharedPrefManager;
 
+import butterknife.BindView;
+
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     private SharedPrefManager sharedPrefManager;
+
+    @BindView(R.id.namaUser)
+    TextView namaUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,8 @@ public class NavDrawer extends AppCompatActivity
         transaction.commit();
 
         sharedPrefManager = new SharedPrefManager(this);
+
+        namaUser.setText(sharedPrefManager.getSpNama());
 
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);

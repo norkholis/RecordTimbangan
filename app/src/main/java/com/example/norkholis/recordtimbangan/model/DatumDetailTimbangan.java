@@ -3,19 +3,13 @@ package com.example.norkholis.recordtimbangan.model;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class DataTimbanganModel {
-    @SerializedName("id_timbangan")
-    @Expose
-    private int idTimbangan;
-    @SerializedName("id_user")
-    @Expose
-    private String idUser;
+public class DatumDetailTimbangan {
     @SerializedName("tanggal")
     @Expose
     private String tanggal;
     @SerializedName("berat_badan")
     @Expose
-    private int beratBadan;
+    private String beratBadan;
     @SerializedName("lemak_tubuh")
     @Expose
     private String lemakTubuh;
@@ -40,22 +34,12 @@ public class DataTimbanganModel {
     @SerializedName("bmr")
     @Expose
     private String bmr;
-
-    public int getIdTimbangan() {
-        return idTimbangan;
-    }
-
-    public void setIdTimbangan(int idTimbangan) {
-        this.idTimbangan = idTimbangan;
-    }
-
-    public String getIdUser() {
-        return idUser;
-    }
-
-    public void setIdUser(String idUser) {
-        this.idUser = idUser;
-    }
+    @SerializedName("id_user")
+    @Expose
+    private String idUser;
+    @SerializedName("id_timbangan")
+    @Expose
+    private String idTimbangan;
 
     public String getTanggal() {
         return tanggal;
@@ -65,11 +49,11 @@ public class DataTimbanganModel {
         this.tanggal = tanggal;
     }
 
-    public int getBeratBadan() {
+    public String getBeratBadan() {
         return beratBadan;
     }
 
-    public void setBeratBadan(int beratBadan) {
+    public void setBeratBadan(String beratBadan) {
         this.beratBadan = beratBadan;
     }
 
@@ -136,4 +120,21 @@ public class DataTimbanganModel {
     public void setBmr(String bmr) {
         this.bmr = bmr;
     }
+
+    public String getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(String idUser) {
+        this.idUser = idUser;
+    }
+
+    public String getIdTimbangan() {
+        return idTimbangan;
+    }
+
+    public void setIdTimbangan(String idTimbangan) {
+        this.idTimbangan = idTimbangan;
+    }
+
 }

@@ -1,6 +1,7 @@
 package com.example.norkholis.recordtimbangan.fragment;
 
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
@@ -16,7 +17,17 @@ import com.example.norkholis.recordtimbangan.adapter.ListTimbanganAdapter;
 import com.example.norkholis.recordtimbangan.api.APIClient;
 import com.example.norkholis.recordtimbangan.model.DataTimbanganModel;
 import com.example.norkholis.recordtimbangan.util.SharedPrefManager;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.components.AxisBase;
+import com.github.mikephil.charting.components.XAxis;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
+import com.github.mikephil.charting.formatter.IAxisValueFormatter;
+import com.github.mikephil.charting.interfaces.datasets.ILineDataSet;
 
+import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit2.Call;
@@ -47,6 +58,9 @@ public class ListTimbangan extends Fragment {
 
         sharedPrefManager = new SharedPrefManager(getContext());
 
+        final LineChart lineChart = (LineChart)view.findViewById(R.id.chart_Timbangan);
+
+
         int id_user = sharedPrefManager.getSpId();
         apiCall = apiClient.getService().getTimbanganUser(id_user);
         apiCall.enqueue(new Callback<List<DataTimbanganModel>>() {
@@ -61,6 +75,41 @@ public class ListTimbangan extends Fragment {
                         listTimbanganAdapter = new ListTimbanganAdapter();
                         listTimbanganAdapter.updateData(listDataTimbangan);
                         rvListTimbangan.setAdapter(listTimbanganAdapter);
+                        final ArrayList<String> xVals = new ArrayList<>();
+                        ArrayList<Entry> yVals = new ArrayList<>();
+                        for (int i=0; i < listDataTimbangan.size(); i++){
+                            xVals.add(listDataTimbangan.get(i).getTanggal());
+                            yVals.add(new Entry(listDataTimbangan.get(i).getBeratBadan(),i));
+                        }
+
+                        LineDataSet set1;
+                        set1 = new LineDataSet(yVals, "Berat Badan");
+                        set1.setColor(Color.BLACK);
+                        set1.setCircleColor(Color.BLACK);
+                        set1.setDrawCircleHole(false);
+
+                        ArrayList<ILineDataSet> dataSets = new ArrayList<>();
+                        dataSets.add(set1);
+
+                        LineData data = new LineData(dataSets);
+                        lineChart.setData(data);
+
+                        String[] xAxis = new String[listDataTimbangan.size()];
+                        xAxis = xVals.toArray(xAxis);
+
+                        final String[] finalXAxis = xAxis;
+
+                        IAxisValueFormatter formatter = new IAxisValueFormatter() {
+                            @Override
+                            public String getFormattedValue(float value, AxisBase axis) {
+                                return finalXAxis[((int) value) / 10];
+                            }
+                        };
+//                        System.out.println("Jancuk: "+finalXAxis.length+" Taek: "+yVals.size());
+                        XAxis xAxisData = lineChart.getXAxis();
+                        xAxisData.setValueFormatter(formatter);
+
+
                     }else{
                         Toast.makeText(getContext(), "Data kosong", Toast.LENGTH_LONG).show();
                     }
@@ -76,4 +125,9 @@ public class ListTimbangan extends Fragment {
         return view;
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        getActivity().getActionBar().setTitle("Data Timbangan");
+    }
 }

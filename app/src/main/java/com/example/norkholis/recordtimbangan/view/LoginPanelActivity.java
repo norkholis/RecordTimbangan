@@ -37,6 +37,8 @@ public class LoginPanelActivity extends AppCompatActivity {
         lgn_username = (EditText)findViewById(R.id.lgn_username);
         lgn_password = (EditText)findViewById(R.id.lgn_password);
 
+        getActionBar().setTitle("Login");
+
         sharedPrefManager = new SharedPrefManager(this);
         if (sharedPrefManager.getSpStatusLogin()){
             Intent i = new Intent(LoginPanelActivity.this, NavDrawer.class);

@@ -82,6 +82,10 @@ public class ListTimbangan extends Fragment {
                             yVals.add(new Entry(listDataTimbangan.get(i).getBeratBadan(),i));
                         }
 
+                        for (int i=0; i< listDataTimbangan.size(); i++){
+                            System.out.println("testtos"+listDataTimbangan.get(i).getTanggal());
+                        }
+
                         LineDataSet set1;
                         set1 = new LineDataSet(yVals, "Berat Badan");
                         set1.setColor(Color.BLACK);
